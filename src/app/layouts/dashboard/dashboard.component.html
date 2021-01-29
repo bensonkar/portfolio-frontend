@@ -1,0 +1,49 @@
+<sb-layout-dashboard>
+  <sb-dashboard-head
+    title="Dashboard"
+    [hideBreadcrumbs]="false"
+  ></sb-dashboard-head>
+  <div class="row">
+    <div class="col-xl-3 col-md-6">
+      <sb-card-view-details link="/dashboard" background="bg-primary"
+        ><div class="card-body">Primary Card</div></sb-card-view-details
+      >
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <sb-card-view-details link="/dashboard" background="bg-warning"
+        ><div class="card-body">Warning Card</div></sb-card-view-details
+      >
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <sb-card-view-details link="/dashboard" background="bg-success"
+        ><div class="card-body">Success Card</div></sb-card-view-details
+      >
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <sb-card-view-details link="/dashboard" background="bg-danger"
+        ><div class="card-body">Danger Card</div></sb-card-view-details
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="">
+        <h2 class="" style="text-decoration: none">System users</h2>
+        <ngx-charts-bar-vertical
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="systemUsers"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel"
+        >
+        </ngx-charts-bar-vertical>
+      </div>
+    </div>
+  </div>
+</sb-layout-dashboard>
