@@ -1,0 +1,40 @@
+
+
+<sb-layout-dashboard>
+    <sb-dashboard-head title="My family" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <button class="btn btn-success"  routerLink="/create-family"><i class="fa fa-plus"> New</i></button>
+    <br>
+    <br>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>phone</th>
+            <th>Relationship</th>
+            <th>Date created</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let family of families">
+            <td>{{ family.firstName }}</td>
+            <td>{{ family.lastName }}</td>
+            <td>{{ family.email }}</td>
+            <td>{{ family.age }}</td>
+            <td>{{ family.gender }}</td>
+            <td>{{ family.phone }}</td>
+            <td>{{ family.relationShip }}</td>
+            <td>{{ family.creationDate | date: 'short'}}</td>
+            <td><button class="btn btn-primary" (click)="update(family)"><i class="fa fa-edit"></i></button></td>
+            <td><button class="btn btn-danger" (click)="delete(family.id)"><i class="fa fa-trash"></i></button></td>
+          </tr>
+        </tbody>
+        </table>
+        
+</sb-layout-dashboard>
+

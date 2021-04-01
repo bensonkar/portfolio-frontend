@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   gradient = true;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'System users';
+  xAxisLabel = 'System analysis';
   showYAxisLabel = true;
   yAxisLabel = 'Total';
   timeline = true;
@@ -29,19 +29,24 @@ export class DashboardComponent implements OnInit {
   constructor(private api: ApiService<any>, private notify: NotifyService) { }
 
   ngOnInit(): void {
+   
     if (!localStorage.getItem('reload')) { 
-      localStorage.setItem('reload', 'no reload');
+      localStorage.setItem('reload', 'reloaded');
       location.reload();
     } else {
-      localStorage.removeItem('reload');
+      // localStorage.removeItem('reload');
     }
 
-    this.api.getToken('api/v1/dashboard/system-users-graph').subscribe(response => {
+    this.api.getToken('api/v1/dashboard/graph').subscribe(response => {
       if (response.code === 200) {
         this.systemUsers = response.data;
       } else {
         this.notify.showNotification(response.message!);
       }
+    });
+
+    this.api.getToken('api/v1/user-data').subscribe((response: any) => {
+      localStorage.setItem('fullName', response.user.firstName +' ' +response.user.lastName);
     });
   }
 

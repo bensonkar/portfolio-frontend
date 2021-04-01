@@ -12,6 +12,16 @@ import { AppReportsComponent } from './layouts/reports/app-reports/app-reports.c
 import { RolesComponent } from './layouts/roles/roles.component';
 import { WorkgroupsComponent } from './layouts/workgroup/workgroups/workgroups.component';
 import { CreateUserComponent } from './layouts/system-users/create-user/create-user.component';
+import { AppGuardService } from './services/app-guard.service';
+import { EmailsComponent } from './layouts/emails/emails/emails.component';
+import { FamilyComponent } from './layouts/family/family/family.component';
+import { CreateFamilyComponent } from './layouts/family/create-family/create-family.component';
+import { RelationshipsComponent } from './layouts/relation/relationships/relationships.component';
+import { EditFamilyComponent } from './layouts/family/edit-family/edit-family.component';
+import { CreateRelationComponent } from './layouts/relation/create-relation/create-relation.component';
+import { EditRelationComponent } from './layouts/relation/edit-relation/edit-relation.component';
+import { SendToOneComponent } from './layouts/emails/send-to-one/send-to-one.component';
+import { SendToAllComponent } from './layouts/emails/send-to-all/send-to-all.component';
 
 const routes: Routes = [
     {
@@ -21,7 +31,7 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
-        canActivate: [],
+        canActivate: [AppGuardService],
         component: DashboardComponent,
         data: {
             title: 'Dashboards',
@@ -68,7 +78,7 @@ const routes: Routes = [
     },
     {
         path: 'roles',
-        canActivate: [],
+        canActivate: [AppGuardService],
         component: RolesComponent,
         data: {
             title: 'Roles',
@@ -83,7 +93,7 @@ const routes: Routes = [
     },
     {
         path: 'workgroups',
-        canActivate: [],
+        canActivate: [AppGuardService],
         component: WorkgroupsComponent,
         data: {
             title: 'Workgroups',
@@ -98,7 +108,7 @@ const routes: Routes = [
     },
     {
         path: 'system-users',
-        canActivate: [],
+        canActivate: [AppGuardService],
         component: UsersComponent,
         data: {
             title: 'System users',
@@ -113,7 +123,7 @@ const routes: Routes = [
     },
     {
         path: 'create-user',
-        canActivate: [],
+        canActivate: [AppGuardService],
         component: CreateUserComponent,
         data: {
             title: 'Create user',
@@ -128,13 +138,106 @@ const routes: Routes = [
     },
     {
         path: 'app-reports',
-        canActivate: [],
+        canActivate: [AppGuardService],
         component: AppReportsComponent,
         data: {
             title: 'App Reports',
             breadcrumbs: [
                 {
                     text: 'Dashboard/app-reports',
+                    link: '/dashboard',
+                    active: false
+                }
+            ]
+        } as SBRouteData,
+    },
+    {
+        path: 'emails',
+        canActivate: [AppGuardService],
+        component: EmailsComponent,
+        data: {
+            title: 'Emails',
+            breadcrumbs: [
+                {
+                    text: 'Dashboard/emails',
+                    link: '/dashboard',
+                    active: false
+                }
+            ]
+        } as SBRouteData,
+    },
+    {
+        path: 'send-to-one',
+        canActivate: [AppGuardService],
+        component: SendToOneComponent,
+        data: {
+            title: 'Send email',
+        } as SBRouteData,
+    },
+    {
+        path: 'send-to-all',
+        canActivate: [AppGuardService],
+        component: SendToAllComponent,
+        data: {
+            title: 'Send email',
+        } as SBRouteData,
+    },
+    {
+        path: 'family',
+        canActivate: [AppGuardService],
+        component: FamilyComponent,
+        data: {
+            title: 'Family members',
+            breadcrumbs: [
+                {
+                    text: 'Dashboard/family',
+                    link: '/dashboard',
+                    active: false
+                }
+            ]
+        } as SBRouteData,
+    },
+    {
+        path: 'create-family',
+        canActivate: [AppGuardService],
+        component: CreateFamilyComponent,
+        data: {
+            title: 'Family members',
+        } as SBRouteData,
+    },
+    {
+        path: 'edit-family',
+        canActivate: [AppGuardService],
+        component: EditFamilyComponent,
+        data: {
+            title: 'Edit member',
+        } as SBRouteData,
+    },
+    {
+        path: 'create-relation',
+        canActivate: [AppGuardService],
+        component: CreateRelationComponent,
+        data: {
+            title: 'Create relation',
+        } as SBRouteData,
+    },
+    {
+        path: 'edit-relation',
+        canActivate: [AppGuardService],
+        component: EditRelationComponent,
+        data: {
+            title: 'Edit relation',
+        } as SBRouteData,
+    },
+    {
+        path: 'relation',
+        canActivate: [AppGuardService],
+        component: RelationshipsComponent,
+        data: {
+            title: 'Relationship',
+            breadcrumbs: [
+                {
+                    text: 'Dashboard/relation',
                     link: '/dashboard',
                     active: false
                 }

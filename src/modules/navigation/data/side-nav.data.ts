@@ -3,7 +3,7 @@ import { SideNavItems, SideNavSection } from '@modules/navigation/models';
 export const sideNavSections: SideNavSection[] = [
     {
         text: '',
-        items: ['dashboard', 'users', 'reports'],
+        items: ['dashboard', 'family', 'emails', 'relation', 'reports',],
     }
 ];
 
@@ -13,33 +13,25 @@ export const sideNavItems: SideNavItems = {
         text: 'Dashboard',
         link: '/dashboard',
     },
-    users: {
+    family: {
         icon: 'users',
-        text: 'User Management',
-        submenu: [
-            {
-                text: 'Roles',
-                link: '/roles',
-            },
-            {
-                text: 'Workgroups',
-                link: '/workgroups',
-            },
-            {
-                text: 'System Users',
-                link: '/system-users',
-            }
-        ]
+        text: 'Family',
+        link: '/family',
+    },
+    emails: {
+        icon: 'envelope',
+        text: 'Emails',
+        link: '/emails',
+    },
+    relation: {
+        icon: 'users',
+        text: 'Relationship',
+        link: '/relation',
     },
     reports: {
         icon: 'file',
         text: 'Reports',
-        submenu: [
-            {
-                text: 'App Reports',
-                link: '/app-reports',
-            }
-        ]
+        link: '/app-reports',
     },
    
 };

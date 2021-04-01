@@ -13,7 +13,7 @@
                       <div class="col-md-3"></div>
                       <div class="col-md-6">
                         <div class="login-page">
-                          <form [formGroup]="otpForm" (ngSubmit)="verify(form)" #form="ngForm">
+                          <form [formGroup]="otpForm" (ngSubmit)="verify()" #form="ngForm">
                             <h5 style="text-align: center; color: #ffffff;">Otp</h5>
                             <div class="alert alert-danger col-sm-11" style="font-size: 11px; margin-left: 4%;" *ngIf="inValidOtp">
                               Otp is invalid

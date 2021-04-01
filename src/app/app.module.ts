@@ -25,9 +25,22 @@ import { WorkgroupsComponent } from './layouts/workgroup/workgroups/workgroups.c
 import { CreateUserComponent } from './layouts/system-users/create-user/create-user.component';
 import { ApproveUserComponent } from './layouts/system-users/approve-user/approve-user.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { CreateFamilyComponent } from './layouts/family/create-family/create-family.component';
+import { EmailsComponent } from './layouts/emails/emails/emails.component';
+import { SendToOneComponent } from './layouts/emails/send-to-one/send-to-one.component';
+import { SendToSelectedComponent } from './layouts/emails/send-to-selected/send-to-selected.component';
+import { RelationshipsComponent } from './layouts/relation/relationships/relationships.component';
+import { CreateRelationComponent } from './layouts/relation/create-relation/create-relation.component';
+import { EditRelationComponent } from './layouts/relation/edit-relation/edit-relation.component';
+import { FamilyComponent } from './layouts/family/family/family.component';
+import { EditFamilyComponent } from './layouts/family/edit-family/edit-family.component';
+import { SendToAllComponent } from './layouts/emails/send-to-all/send-to-all.component';
 
 @NgModule({
-    declarations: [AppComponent, TestComponent, DashboardComponent, LoginComponent, VerifyOtpComponent, UsersComponent, ChangePasswordComponent, ForgotPasswordComponent, AppReportsComponent, RolesComponent, WorkgroupsComponent, CreateUserComponent, ApproveUserComponent],
+    declarations: [AppComponent, TestComponent, DashboardComponent, LoginComponent, VerifyOtpComponent, UsersComponent,
+         ChangePasswordComponent, ForgotPasswordComponent, AppReportsComponent, RolesComponent, WorkgroupsComponent, 
+         CreateUserComponent, ApproveUserComponent, CreateFamilyComponent, EmailsComponent, SendToOneComponent,
+          SendToSelectedComponent, RelationshipsComponent, CreateRelationComponent, EditRelationComponent, FamilyComponent, EditFamilyComponent, SendToAllComponent],
     imports: [
         BrowserModule, 
         AppRoutingModule, 

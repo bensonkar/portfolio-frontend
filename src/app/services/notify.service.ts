@@ -5,14 +5,16 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
   providedIn: 'root'
 })
 export class NotifyService {
- private horizontalPosition: MatSnackBarHorizontalPosition = 'end';
- private verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  private horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  private verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   constructor(public snackBar: MatSnackBar) { }
 
   showNotification(message: string) {
-    this.snackBar.open(message, 'Cancel',
-    {duration: 5000, horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,});
+    this.snackBar.open(message, 'cancel',
+      {
+        duration: 5000, horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
   }
 }

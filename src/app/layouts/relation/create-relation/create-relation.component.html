@@ -1,0 +1,19 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="create new Relation" [hideBreadcrumbs]="true"></sb-dashboard-head>
+    <br />
+    <br />
+  
+    <form [formGroup]="forms" #form="ngForm" (ngSubmit)="submit()">
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label>Relation name</label>
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+        <div style="margin-top: 28px;">
+            <button class="btn btn-primary" [class.spinner]="loading" [disabled]="loading || form.invalid">Submit</button>
+          </div>
+      </div>
+     
+    </form>
+  </sb-layout-dashboard>
+  

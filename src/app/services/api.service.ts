@@ -11,6 +11,7 @@ import { catchError } from 'rxjs/operators';
 export class ApiService<T> {
   baseUrl: GlobalParams;
   dtOptions: any = {};
+  data!: T;
 
   constructor(protected http: HttpClient) {
     this.baseUrl = new GlobalParams();
@@ -41,14 +42,25 @@ export class ApiService<T> {
       .pipe(catchError(this.handleError<any>()));
   }
   //put request with headers
-  put(endpoint: string, data: T): Observable<ResponseWrapper<any>> {
-    return this.http.put(this.baseUrl.baseUrl + endpoint, data, { headers: this.headersToken })
+  put(endpoint: string, data: T, id: any): Observable<ResponseWrapper<any>> {
+    return this.http.put(this.baseUrl.baseUrl + endpoint +'/' +id, data, { headers: this.headersToken })
       .pipe(catchError(this.handleError<any>()));
   }
   //put request without headers
   putNoToken(endpoint: string, data: T): Observable<ResponseWrapper<any>> {
     return this.http.put(this.baseUrl.baseUrl + endpoint, data)
       .pipe(catchError(this.handleError<any>()));
+  }
+  //delete request with token
+  deleteToken(endpoint: string, id: T): Observable<ResponseWrapper<any>>{
+    return this.http.delete(this.baseUrl.baseUrl + endpoint +'/'+ id, { headers: this.headersToken })
+    .pipe(catchError(this.handleError<any>()));
+  }
+  setter(data: T) {
+    this.data = data;
+  }
+  getter() {
+    return this.data;
   }
   dataTableOptions(): DataTables.Settings {
     this.dtOptions = {

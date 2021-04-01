@@ -21,27 +21,21 @@ export class VerifyOtpComponent implements OnInit {
      private notify: NotifyService,) { }
 
   ngOnInit(): void {
-     if (!localStorage.getItem('reload')) { 
-      localStorage.setItem('reload', 'no reload'); 
-      location.reload(); 
-    } else {
-      localStorage.removeItem('reload'); 
-    }
     this.otpForm = this.fb.group({
       otp: ['', Validators.required]
     });
   }
 
-  verify(form: NgForm) {
+  verify() {
     this.loading = true;
     this.api.postToken('api/v1/verify-otp', this.otpForm.value).subscribe((response: any) => {
       if (response.code === 200) {
-        this.route.navigate(['dashboard']);
         localStorage.setItem('isLoggedIn', 'true');
         this.api.getToken('api/v1/user-data').subscribe((response: any) => {
-          localStorage.setItem('fullName', response.user.name);
+          localStorage.setItem('fullName', response.user.firstName +' ' +response.user.lastName);
+          this.notify.showNotification(`welcome ${response.user.firstName} ${response.user.lastName}`);
         });
-        this.notify.showNotification(response.message!);
+        this.route.navigate(['dashboard']);
       } else {
         this.loading = false;
         this.notify.showNotification(response.message!);
@@ -52,7 +46,7 @@ export class VerifyOtpComponent implements OnInit {
       console.log(error.error);
     });
   }
-  resend(form: NgForm) {
+  resend() {
     this.api.getToken('api/v1/resend-otp').subscribe(response => {
       if (response.code === 200) {
         this.notify.showNotification(response.message!);

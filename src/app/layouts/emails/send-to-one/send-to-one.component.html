@@ -1,0 +1,22 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Send email" [hideBreadcrumbs]="true"></sb-dashboard-head>
+    <br />
+    <br />
+  
+    <form [formGroup]="forms" #form="ngForm" (ngSubmit)="submit()">
+        <div class="">
+          <div class="form-group col-sm-4">
+              <label>Message title</label>
+              <input type="text" class="form-control" formControlName="title">
+          </div>
+          <div class="form-group col-sm-4">
+            <textarea name="nessage" formControlName="message" id="message" cols="70" rows="10" placeholder="type your message"></textarea>
+          </div>
+        </div>
+        <div style="margin-top: 28px;">
+          <button class="btn btn-primary" [class.spinner]="loading" [disabled]="loading || form.invalid">Submit</button>
+        </div>
+       
+      </form>
+  </sb-layout-dashboard>
+  

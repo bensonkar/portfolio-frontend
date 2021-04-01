@@ -1,5 +1,6 @@
 export class GlobalParams {
 
-    baseUrl = 'http://localhost:8000/';
+    baseUrl = 'https://ben-portforlio.herokuapp.com/';
+    // baseUrl = 'http://localhost:9000/';
     
 }

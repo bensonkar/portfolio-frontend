@@ -54,14 +54,16 @@ export class LoginComponent implements OnInit {
         if (response.access_token.length !== 0) {
           localStorage.setItem('access_token', response.access_token);
           this.invalidLogin = false;
-          this.route.navigate(['verify-otp']);
+          // this.route.navigate(['verify-otp']);
+          localStorage.setItem('isLoggedIn', 'true');
+          this.route.navigate(['dashboard']);
           this.notify.showNotification('Request was successful');
         } else {
           this.loading = false;
           this.notify.showNotification(response.message);
         }
       }
-
+      this.loading = false;
 
     }, (error: any) => {
       this.loading = false;
