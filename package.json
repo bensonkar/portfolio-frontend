@@ -30,6 +30,7 @@
     "@prettier/plugin-pug": "1.10.1",
     "@swimlane/ngx-charts": "^17.0.0",
     "@types/d3-shape": "^2.0.0",
+    "angular-cli-ghpages": "^1.0.0-rc.1",
     "angular-datatables": "^11.0.2",
     "chart.js": "2.9.4",
     "d3": "^6.5.0",
