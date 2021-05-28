@@ -35,12 +35,16 @@ import { EditRelationComponent } from './layouts/relation/edit-relation/edit-rel
 import { FamilyComponent } from './layouts/family/family/family.component';
 import { EditFamilyComponent } from './layouts/family/edit-family/edit-family.component';
 import { SendToAllComponent } from './layouts/emails/send-to-all/send-to-all.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
-    declarations: [AppComponent, TestComponent, DashboardComponent, LoginComponent, VerifyOtpComponent, UsersComponent,
-         ChangePasswordComponent, ForgotPasswordComponent, AppReportsComponent, RolesComponent, WorkgroupsComponent, 
-         CreateUserComponent, ApproveUserComponent, CreateFamilyComponent, EmailsComponent, SendToOneComponent,
-          SendToSelectedComponent, RelationshipsComponent, CreateRelationComponent, EditRelationComponent, FamilyComponent, EditFamilyComponent, SendToAllComponent],
+    declarations: [
+        AppComponent, TestComponent, DashboardComponent, LoginComponent, VerifyOtpComponent, UsersComponent,
+        ChangePasswordComponent, ForgotPasswordComponent, AppReportsComponent, RolesComponent, WorkgroupsComponent, 
+        CreateUserComponent, ApproveUserComponent, CreateFamilyComponent, EmailsComponent, SendToOneComponent,
+        SendToSelectedComponent, RelationshipsComponent, CreateRelationComponent, EditRelationComponent,
+        FamilyComponent, EditFamilyComponent, SendToAllComponent
+        ],
     imports: [
         BrowserModule, 
         AppRoutingModule, 
@@ -54,9 +58,9 @@ import { SendToAllComponent } from './layouts/emails/send-to-all/send-to-all.com
         MatSnackBarModule,
         BrowserAnimationsModule,
         MatProgressSpinnerModule,
-        NgxChartsModule
+        NgxChartsModule,
     ],
-    providers: [],
+    providers: [CookieService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpParams } from '@angular/common/http';
 import { ApiService } from '../services/api.service';
 import { NotifyService } from '../services/notify.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder, private notify: NotifyService,
-    private route: Router, private api: ApiService<any>) {
+    private route: Router, private api: ApiService<any>,private cookieService: CookieService) {
   }
 
   ngOnInit() {
@@ -55,6 +56,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('access_token', response.access_token);
           this.invalidLogin = false;
           // this.route.navigate(['verify-otp']);
+          this.cookieService.set('token',response.access_token);
           localStorage.setItem('isLoggedIn', 'true');
           this.route.navigate(['dashboard']);
           this.notify.showNotification('Request was successful');
